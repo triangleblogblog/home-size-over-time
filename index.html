@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-0.9.449">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Trends in home and lot size over time in Chapel Hill</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<script src="index_files/libs/clipboard/clipboard.min.js"></script>
+<script src="index_files/libs/quarto-html/quarto.js"></script>
+<script src="index_files/libs/quarto-html/popper.min.js"></script>
+<script src="index_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="index_files/libs/quarto-html/anchor.min.js"></script>
+<link href="index_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link class="quarto-color-scheme" id="quarto-text-highlighting-styles" href="index_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
+<link class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles" href="index_files/libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet">
+<script src="index_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="index_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link class="quarto-color-scheme" href="index_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+<link class="quarto-color-scheme quarto-color-alternate" href="index_files/libs/bootstrap/bootstrap-dark.min.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+<header id="title-block-header" class="quarto-title-block default toc-left page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <div class="quarto-title-block"><div><h1 class="title">Trends in home and lot size over time in Chapel Hill</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
+                      </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="page-columns page-rows-contents page-layout-article toc-left">
+<div id="quarto-sidebar-toc-left" class="sidebar toc-left">
+  <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"> <span class="header-section-number">1</span> Introduction</a></li>
+  <li><a href="#get-some-data" id="toc-get-some-data" class="nav-link" data-scroll-target="#get-some-data"> <span class="header-section-number">2</span> Get some data</a></li>
+  <li><a href="#read-in-the-data" id="toc-read-in-the-data" class="nav-link" data-scroll-target="#read-in-the-data"> <span class="header-section-number">3</span> Read in the data!</a></li>
+  <li><a href="#summarise-the-data" id="toc-summarise-the-data" class="nav-link" data-scroll-target="#summarise-the-data"> <span class="header-section-number">4</span> Summarise the data</a></li>
+  </ul>
+</nav>
+</div>
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+</div>
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<section id="introduction" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">1</span> Introduction</h2>
+<p>Let’s look at the trend in the lot size and home size of houses built in Chapel Hill over time.</p>
+</section>
+<section id="get-some-data" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="get-some-data"><span class="header-section-number">2</span> Get some data</h2>
+<p>We need: Year Built Structure Type, Parcel Size, and Floor area.</p>
+<p>Let’s pull in the Orange County parcel data, which tells us where parcels are and their area. It’s available <a href="ParcelsGDB.zip">here</a>.</p>
+<p>We also need the Orange County Address data, which has the year built, floor area. That’s available <a href="%22https://web.co.orange.nc.us/gisdownloads/addresses.zip%22">here</a>.</p>
+<p>Finally, we need the municipal boundaries to accurately capture which jurisdictions are relevant. That’s available <a href="%22https://web.co.orange.nc.us/gisdownloads/city.zip%22">here</a>.</p>
+<div class="cell">
+
+</div>
+<div class="cell">
+<details>
+<summary>show the code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">download.file</span>(<span class="st">"https://web.co.orange.nc.us/gisdownloads/ParcelsGDB.zip"</span>, <span class="at">destfile =</span> <span class="st">"ParcelsGDB.zip"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">unzip</span>(<span class="st">"ParcelsGDB.zip"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">download.file</span>(<span class="st">"https://web.co.orange.nc.us/gisdownloads/addresses.zip"</span>, <span class="at">destfile =</span> <span class="st">"addresses.zip"</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">unzip</span>(<span class="st">"addresses.zip"</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">download.file</span>(<span class="st">"https://web.co.orange.nc.us/gisdownloads/city.zip"</span>, <span class="at">destfile =</span> <span class="st">"city.zip"</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">unzip</span>(<span class="st">"city.zip"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="read-in-the-data" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="read-in-the-data"><span class="header-section-number">3</span> Read in the data!</h2>
+<p>And get only the Chapel Hill boundary.</p>
+<div class="cell">
+<details>
+<summary>show the code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_mdb</span>(<span class="st">"ParcelsGDB.mdb"</span>, <span class="at">table=</span><span class="st">"PARCELVIEW"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: One or more parsing issues, see `problems()` for details</code></pre>
+</div>
+<details>
+<summary>show the code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>addr <span class="ot">&lt;-</span> <span class="fu">read_sf</span>(<span class="st">"addresses.shp"</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>city <span class="ot">&lt;-</span> <span class="fu">read_sf</span>(<span class="st">"city.shp"</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>ch <span class="ot">&lt;-</span> city <span class="sc">%&gt;%</span> <span class="fu">filter</span>(CITYCODE <span class="sc">==</span> <span class="st">"CH"</span>) <span class="sc">%&gt;%</span> <span class="fu">st_union</span>() <span class="sc">%&gt;%</span> <span class="fu">st_as_sf</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="summarise-the-data" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="summarise-the-data"><span class="header-section-number">4</span> Summarise the data</h2>
+<p>First, we filter the addresses to only single family-type residences.</p>
+<details>
+<summary>show the code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>addr <span class="ot">&lt;-</span> addr <span class="sc">%&gt;%</span> <span class="fu">filter</span>(LBCSSubCod <span class="sc">&lt;</span> <span class="dv">1160</span> <span class="sc">&amp;</span> LBCSSubCod <span class="sc">&gt;</span><span class="dv">0</span>) </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>addr <span class="ot">&lt;-</span> addr[ch,]</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">#mapview::mapview(addr,zcol="LBCSDesc")</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>parcels <span class="ot">&lt;-</span> sf<span class="sc">::</span><span class="fu">read_sf</span>(<span class="st">"All_Parcels.geojson"</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>duplex_footprint <span class="ot">&lt;-</span> <span class="dv">2774</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">right_join</span>(parcels,<span class="fu">st_drop_geometry</span>(addr),<span class="at">by=</span><span class="st">"PIN"</span>) <span class="sc">%&gt;%</span> <span class="fu">filter</span>(LBCSDesc <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Res-Single Family"</span>, <span class="st">"Res-MH-SW"</span>, <span class="st">"Res-MH-DW-TW"</span>)) <span class="sc">%&gt;%</span> <span class="fu">filter</span>(OwnerAddress<span class="sc">!=</span><span class="st">"PROPERTY OFFICE UNC"</span>) <span class="sc">%&gt;%</span> <span class="fu">st_transform</span>(<span class="dv">2264</span>) <span class="sc">%&gt;%</span> <span class="fu">st_make_valid</span>() <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">area_acr =</span> <span class="fu">as.numeric</span>(<span class="fu">st_area</span>(.)<span class="sc">/</span><span class="dv">43560</span>), <span class="at">area_ft2 =</span> <span class="fu">as.numeric</span>(<span class="fu">st_area</span>(.))) <span class="sc">%&gt;%</span> <span class="fu">filter</span>(area_acr<span class="sc">&lt;</span><span class="dv">5</span>) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">plexable =</span> <span class="fu">case_when</span>(area_ft2<span class="sc">&gt;=</span><span class="dv">4</span><span class="sc">*</span>duplex_footprint <span class="sc">~</span> <span class="st">"yes"</span>, <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">"no"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<p>We then filter to only parcels in CH, and animate the plot.</p>
+<details>
+<summary>show the code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>data2 <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> <span class="fu">filter</span>(PIN <span class="sc">%in%</span> d<span class="sc">$</span>PIN)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>gif <span class="ot">&lt;-</span> data2 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(FinArea <span class="sc">&lt;</span> <span class="dv">6000</span> <span class="sc">&amp;</span> YearBlt <span class="sc">&gt;</span> <span class="dv">1900</span> <span class="sc">&amp;</span> Shape_Area <span class="sc">&lt;</span> <span class="dv">43560</span><span class="sc">*</span><span class="dv">2</span>) <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(YearBlt)) <span class="sc">%&gt;%</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>Shape_Area<span class="sc">/</span><span class="dv">43560</span>, <span class="at">y=</span>FinArea, <span class="at">color=</span>YearBlt)) <span class="sc">+</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">alpha=</span><span class="fl">0.5</span>) <span class="sc">+</span> <span class="fu">transition_time</span>(YearBlt) <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">'Year: {frame_time}'</span>) <span class="sc">+</span> <span class="fu">shadow_mark</span>() <span class="sc">+</span> <span class="fu">scale_colour_viridis_b</span>() <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">"Lot Size (Acres)"</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">"Unit sqft"</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>gif<span class="ot">&lt;-</span><span class="fu">animate</span>(gif, <span class="at">renderer=</span><span class="fu">gifski_renderer</span>())</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="fu">anim_save</span>(<span class="st">"gig.gif"</span>,gif)</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>gif</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-5-1.gif" class="img-fluid"></p>
+</div>
+<!-- -->
+
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+    } else {
+      disableStylesheet(alternateStylesheets);
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'alternate';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } 
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb7" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Trends in home and lot size over time in Chapel Hill"</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> </span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co">    title-block-banner: true</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co">    toc: true</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co">    toc-location: left</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co">    toc-depth: 3</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="co">    html-math-method: katex</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co">    code-fold: true</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="co">    code-summary: "show the code"</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="co">    code-overflow: wrap</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="co">    number-sections: true</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="co">    theme: </span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="co">      dark: slate</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="co">      light: flatly</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="co">    fig-width: 9</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a><span class="co">    fig-height: 6</span></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a><span class="an">editor:</span><span class="co"> visual</span></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a><span class="fu">## Introduction</span></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>Let's look at the trend in the lot size and home size of houses built in Chapel Hill over time.</span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a><span class="fu">## Get some data</span></span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>We need: Year Built Structure Type, Parcel Size, and Floor area.</span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>Let's pull in the Orange County parcel data, which tells us where parcels are and their area. It's available <span class="co">[</span><span class="ot">here</span><span class="co">](ParcelsGDB.zip)</span>.</span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>We also need the Orange County Address data, which has the year built, floor area. That's available <span class="co">[</span><span class="ot">here</span><span class="co">](%22https://web.co.orange.nc.us/gisdownloads/addresses.zip%22)</span>.</span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>Finally, we need the municipal boundaries to accurately capture which jurisdictions are relevant. That's available <span class="co">[</span><span class="ot">here</span><span class="co">](%22https://web.co.orange.nc.us/gisdownloads/city.zip%22)</span>.</span>
+<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, output=FALSE, echo=FALSE, message=FALSE, warning=FALSE}</span></span>
+<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Hmisc)</span>
+<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mdbr)</span>
+<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
+<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gganimate)</span>
+<span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-46"><a href="#cb7-46" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, eval = FALSE}</span></span>
+<span id="cb7-47"><a href="#cb7-47" aria-hidden="true" tabindex="-1"></a><span class="fu">download.file</span>(<span class="st">"https://web.co.orange.nc.us/gisdownloads/ParcelsGDB.zip"</span>, <span class="at">destfile =</span> <span class="st">"ParcelsGDB.zip"</span>)</span>
+<span id="cb7-48"><a href="#cb7-48" aria-hidden="true" tabindex="-1"></a><span class="fu">unzip</span>(<span class="st">"ParcelsGDB.zip"</span>)</span>
+<span id="cb7-49"><a href="#cb7-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-50"><a href="#cb7-50" aria-hidden="true" tabindex="-1"></a><span class="fu">download.file</span>(<span class="st">"https://web.co.orange.nc.us/gisdownloads/addresses.zip"</span>, <span class="at">destfile =</span> <span class="st">"addresses.zip"</span>)</span>
+<span id="cb7-51"><a href="#cb7-51" aria-hidden="true" tabindex="-1"></a><span class="fu">unzip</span>(<span class="st">"addresses.zip"</span>)</span>
+<span id="cb7-52"><a href="#cb7-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-53"><a href="#cb7-53" aria-hidden="true" tabindex="-1"></a><span class="fu">download.file</span>(<span class="st">"https://web.co.orange.nc.us/gisdownloads/city.zip"</span>, <span class="at">destfile =</span> <span class="st">"city.zip"</span>)</span>
+<span id="cb7-54"><a href="#cb7-54" aria-hidden="true" tabindex="-1"></a><span class="fu">unzip</span>(<span class="st">"city.zip"</span>)</span>
+<span id="cb7-55"><a href="#cb7-55" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-56"><a href="#cb7-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-57"><a href="#cb7-57" aria-hidden="true" tabindex="-1"></a><span class="fu">## Read in the data!</span></span>
+<span id="cb7-58"><a href="#cb7-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-59"><a href="#cb7-59" aria-hidden="true" tabindex="-1"></a>And get only the Chapel Hill boundary.</span>
+<span id="cb7-60"><a href="#cb7-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-63"><a href="#cb7-63" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb7-64"><a href="#cb7-64" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_mdb</span>(<span class="st">"ParcelsGDB.mdb"</span>, <span class="at">table=</span><span class="st">"PARCELVIEW"</span>)</span>
+<span id="cb7-65"><a href="#cb7-65" aria-hidden="true" tabindex="-1"></a>addr <span class="ot">&lt;-</span> <span class="fu">read_sf</span>(<span class="st">"addresses.shp"</span>)</span>
+<span id="cb7-66"><a href="#cb7-66" aria-hidden="true" tabindex="-1"></a>city <span class="ot">&lt;-</span> <span class="fu">read_sf</span>(<span class="st">"city.shp"</span>)</span>
+<span id="cb7-67"><a href="#cb7-67" aria-hidden="true" tabindex="-1"></a>ch <span class="ot">&lt;-</span> city <span class="sc">%&gt;%</span> <span class="fu">filter</span>(CITYCODE <span class="sc">==</span> <span class="st">"CH"</span>) <span class="sc">%&gt;%</span> <span class="fu">st_union</span>() <span class="sc">%&gt;%</span> <span class="fu">st_as_sf</span>()</span>
+<span id="cb7-68"><a href="#cb7-68" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-69"><a href="#cb7-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-70"><a href="#cb7-70" aria-hidden="true" tabindex="-1"></a><span class="fu">## Summarise the data</span></span>
+<span id="cb7-71"><a href="#cb7-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-72"><a href="#cb7-72" aria-hidden="true" tabindex="-1"></a>First, we filter the addresses to only single family-type residences.</span>
+<span id="cb7-73"><a href="#cb7-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-74"><a href="#cb7-74" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, results="asis"}</span></span>
+<span id="cb7-75"><a href="#cb7-75" aria-hidden="true" tabindex="-1"></a>addr <span class="ot">&lt;-</span> addr <span class="sc">%&gt;%</span> <span class="fu">filter</span>(LBCSSubCod <span class="sc">&lt;</span> <span class="dv">1160</span> <span class="sc">&amp;</span> LBCSSubCod <span class="sc">&gt;</span><span class="dv">0</span>) </span>
+<span id="cb7-76"><a href="#cb7-76" aria-hidden="true" tabindex="-1"></a>addr <span class="ot">&lt;-</span> addr[ch,]</span>
+<span id="cb7-77"><a href="#cb7-77" aria-hidden="true" tabindex="-1"></a><span class="co">#mapview::mapview(addr,zcol="LBCSDesc")</span></span>
+<span id="cb7-78"><a href="#cb7-78" aria-hidden="true" tabindex="-1"></a>parcels <span class="ot">&lt;-</span> sf<span class="sc">::</span><span class="fu">read_sf</span>(<span class="st">"All_Parcels.geojson"</span>)</span>
+<span id="cb7-79"><a href="#cb7-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-80"><a href="#cb7-80" aria-hidden="true" tabindex="-1"></a>duplex_footprint <span class="ot">&lt;-</span> <span class="dv">2774</span></span>
+<span id="cb7-81"><a href="#cb7-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-82"><a href="#cb7-82" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">right_join</span>(parcels,<span class="fu">st_drop_geometry</span>(addr),<span class="at">by=</span><span class="st">"PIN"</span>) <span class="sc">%&gt;%</span> <span class="fu">filter</span>(LBCSDesc <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Res-Single Family"</span>, <span class="st">"Res-MH-SW"</span>, <span class="st">"Res-MH-DW-TW"</span>)) <span class="sc">%&gt;%</span> <span class="fu">filter</span>(OwnerAddress<span class="sc">!=</span><span class="st">"PROPERTY OFFICE UNC"</span>) <span class="sc">%&gt;%</span> <span class="fu">st_transform</span>(<span class="dv">2264</span>) <span class="sc">%&gt;%</span> <span class="fu">st_make_valid</span>() <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">area_acr =</span> <span class="fu">as.numeric</span>(<span class="fu">st_area</span>(.)<span class="sc">/</span><span class="dv">43560</span>), <span class="at">area_ft2 =</span> <span class="fu">as.numeric</span>(<span class="fu">st_area</span>(.))) <span class="sc">%&gt;%</span> <span class="fu">filter</span>(area_acr<span class="sc">&lt;</span><span class="dv">5</span>) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">plexable =</span> <span class="fu">case_when</span>(area_ft2<span class="sc">&gt;=</span><span class="dv">4</span><span class="sc">*</span>duplex_footprint <span class="sc">~</span> <span class="st">"yes"</span>, <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">"no"</span>))</span>
+<span id="cb7-83"><a href="#cb7-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-84"><a href="#cb7-84" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-85"><a href="#cb7-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-86"><a href="#cb7-86" aria-hidden="true" tabindex="-1"></a>We then filter to only parcels in CH, and animate the plot.</span>
+<span id="cb7-87"><a href="#cb7-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-88"><a href="#cb7-88" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, results="asis"}</span></span>
+<span id="cb7-89"><a href="#cb7-89" aria-hidden="true" tabindex="-1"></a>data2 <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> <span class="fu">filter</span>(PIN <span class="sc">%in%</span> d<span class="sc">$</span>PIN)</span>
+<span id="cb7-90"><a href="#cb7-90" aria-hidden="true" tabindex="-1"></a>gif <span class="ot">&lt;-</span> data2 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(FinArea <span class="sc">&lt;</span> <span class="dv">6000</span> <span class="sc">&amp;</span> YearBlt <span class="sc">&gt;</span> <span class="dv">1900</span> <span class="sc">&amp;</span> Shape_Area <span class="sc">&lt;</span> <span class="dv">43560</span><span class="sc">*</span><span class="dv">2</span>) <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(YearBlt)) <span class="sc">%&gt;%</span></span>
+<span id="cb7-91"><a href="#cb7-91" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>Shape_Area<span class="sc">/</span><span class="dv">43560</span>, <span class="at">y=</span>FinArea, <span class="at">color=</span>YearBlt)) <span class="sc">+</span></span>
+<span id="cb7-92"><a href="#cb7-92" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">alpha=</span><span class="fl">0.5</span>) <span class="sc">+</span> <span class="fu">transition_time</span>(YearBlt) <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">'Year: {frame_time}'</span>) <span class="sc">+</span> <span class="fu">shadow_mark</span>() <span class="sc">+</span> <span class="fu">scale_colour_viridis_b</span>() <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">"Lot Size (Acres)"</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">"Unit sqft"</span>)</span>
+<span id="cb7-93"><a href="#cb7-93" aria-hidden="true" tabindex="-1"></a>gif<span class="ot">&lt;-</span><span class="fu">animate</span>(gif, <span class="at">renderer=</span><span class="fu">gifski_renderer</span>())</span>
+<span id="cb7-94"><a href="#cb7-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-95"><a href="#cb7-95" aria-hidden="true" tabindex="-1"></a><span class="fu">anim_save</span>(<span class="st">"gig.gif"</span>,gif)</span>
+<span id="cb7-96"><a href="#cb7-96" aria-hidden="true" tabindex="-1"></a>gif</span>
+<span id="cb7-97"><a href="#cb7-97" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+
+
+
+</body></html>
