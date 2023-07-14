@@ -77,7 +77,13 @@ parcels <- sf::read_sf("All_Parcels.geojson")
 
 duplex_footprint <- 2774
 
-d <- right_join(parcels,st_drop_geometry(addr),by="PIN") %>% filter(LBCSDesc %in% c("Res-Single Family", "Res-MH-SW", "Res-MH-DW-TW")) %>% filter(OwnerAddress!="PROPERTY OFFICE UNC") %>% st_transform(2264) %>% st_make_valid() %>% mutate(area_acr = as.numeric(st_area(.)/43560), area_ft2 = as.numeric(st_area(.))) %>% filter(area_acr<5) %>% mutate(plexable = case_when(area_ft2>=4*duplex_footprint ~ "yes", TRUE ~ "no"))
+d <- right_join(parcels,st_drop_geometry(addr),by="PIN") %>% 
+  filter(LBCSDesc %in% c("Res-Single Family", "Res-MH-SW", "Res-MH-DW-TW")) %>% 
+  filter(OwnerAddress!="PROPERTY OFFICE UNC") %>% 
+  st_transform(2264) %>% st_make_valid() %>% 
+  mutate(area_acr = as.numeric(st_area(.)/43560), area_ft2 = as.numeric(st_area(.))) %>% 
+  filter(area_acr<5) %>% 
+  mutate(plexable = case_when(area_ft2>=4*duplex_footprint ~ "yes", TRUE ~ "no"))
 
 ```
 
@@ -85,9 +91,18 @@ We then filter to only parcels in CH, and animate the plot.
 
 ```{r, results="asis"}
 data2 <- data %>% filter(PIN %in% d$PIN)
-gif <- data2 %>% filter(FinArea < 6000 & YearBlt > 1900 & Shape_Area < 43560*2) %>% arrange(desc(YearBlt)) %>%
-    ggplot(aes(x=Shape_Area/43560, y=FinArea, color=YearBlt)) +
-    geom_point(alpha=0.5) + transition_time(YearBlt) + labs(title = 'Year: {frame_time}') + shadow_mark() + scale_colour_viridis_b() + xlab("Lot Size (Acres)") + ylab("Unit sqft")
+gif <- data2 %>% 
+filter(FinArea < 6000 & YearBlt > 1900 & Shape_Area < 43560*2) %>% 
+  arrange(desc(YearBlt)) %>%
+  ggplot(aes(x=Shape_Area/43560, y=FinArea, color=YearBlt)) +
+    geom_point(alpha=0.5) + 
+    transition_time(YearBlt) + 
+    labs(title = 'Year: {frame_time}') + 
+    shadow_mark() + 
+    scale_colour_viridis_b() + 
+    xlab("Lot Size (Acres)") + 
+    ylab("Unit sqft")
+
 gif<-animate(gif, renderer=gifski_renderer())
 
 anim_save("gig.gif",gif)
